@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.4.10/dist/antd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/ant-design-vue@1.4.10/dist/antd.min.css" rel="stylesheet"
+          type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+</head>
+
+<body>
+<div id="app">
+
+    <a-form-model layout="inline" :model="formInline" @submit="handleSubmit" @submit.native.prevent>
+        <a-form-model-item>
+            <a-input v-model="formInline.user" placeholder="Username">
+                <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
+            </a-input>
+        </a-form-model-item>
+        <a-form-model-item>
+            <a-input v-model="formInline.password" type="password" placeholder="Password">
+                <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
+            </a-input>
+        </a-form-model-item>
+        <a-form-model-item>
+            <a-button
+                    type="primary"
+                    html-type="submit"
+                    :disabled="formInline.user === '' || formInline.password === ''"
+            >
+                Log in
+            </a-button>
+        </a-form-model-item>
+    </a-form-model>
+
+
+
+
+
+
+
+
+
+</div>
+<script src="/js/antTest2.js"></script>
+
+
+</body>
+
+</html>

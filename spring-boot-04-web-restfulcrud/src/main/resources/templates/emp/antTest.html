@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.4.10/dist/antd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/ant-design-vue@1.4.10/dist/antd.min.css" rel="stylesheet"
+          type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+
+
+
+        <div>
+            <!--<a-input placeholder="Basic usage" />-->
+            <br />
+            <a-button type="primary">Primary</a-button>
+            <a-button>Default</a-button>
+            <a-button type="dashed">Dashed</a-button>
+            <a-button type="danger">Danger</a-button>
+            <a-button type="link">Link</a-button>
+            <a-radio-group >
+                <a-radio-button value="large">
+                    Large
+                </a-radio-button>
+                <a-radio-button value="default">
+                    Default
+                </a-radio-button>
+                <a-radio-button value="small">
+                    Small
+                </a-radio-button>
+            </a-radio-group>
+            <a-select
+                    mode="multiple"
+                    placeholder="Please select"
+                    style="width: 200px"
+
+            >
+                <a-select-option v-for="i in 25" :key="(i + 9).toString(36) + i">
+                    {{ (i + 9).toString(36) + i }}
+                </a-select-option>
+            </a-select>
+            <br />
+            <a-input placeholder="Basic usage" />
+        </div>
+
+
+
+
+
+
+
+    </div>
+<script>
+    // 一定要有vue对象绑定控件，才能够渲染控件
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js'
+        }
+    });
+
+</script>
+
+</body>
+
+</html>
