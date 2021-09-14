@@ -7,6 +7,7 @@
         <!--        bean的依赖注入：基本数据类型属性-->
         <property name="username" value="zhangsan"></property>
         <property name="age" value="18"></property>
+        <!--        list和map属性的注入很麻烦，不演示-->
     </bean>
     <!--    静态工厂-->
     <!--    <bean id="userDao" class="com.xyq.factory.StaticFactory" factory-method="getUserDao"></bean>-->
@@ -15,8 +16,6 @@
     <!--    <bean id="userDao" factory-bean="dynamicFactory" factory-method="getUserDao">-->
     <!--        -->
     <!--    </bean>-->
-
-
     <!--    2.bean的依赖注入:有参构造方法/set注入-->
     <bean id="userService" class="com.xyq.service.UserService">
         <!--        set注入 name为属性名 ref为引用的bean的id-->
@@ -24,5 +23,4 @@
         <!--        有参构造方法 name为构造方法参数名 ref为引用的bean的id-->
         <constructor-arg name="userDao" ref="userDao"></constructor-arg>
     </bean>
-
 </beans>
