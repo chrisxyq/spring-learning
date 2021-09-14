@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    1.bean的xml配置的三种方法-->
+    <bean id="userDao" class="com.xyq.dao.impl.UserDaoImpl" scope="prototype">
+        <!--        bean的依赖注入：基本数据类型属性-->
+        <property name="username" value="zhangsan"></property>
+        <property name="age" value="18"></property>
+    </bean>
+    <!--    静态工厂-->
+    <!--    <bean id="userDao" class="com.xyq.factory.StaticFactory" factory-method="getUserDao"></bean>-->
+    <!--    工厂方法-->
+    <!--    <bean id="dynamicFactory" class="com.xyq.factory.DynamicFactory"></bean>-->
+    <!--    <bean id="userDao" factory-bean="dynamicFactory" factory-method="getUserDao">-->
+    <!--        -->
+    <!--    </bean>-->
+
+
+    <!--    2.bean的依赖注入:有参构造方法/set注入-->
+    <bean id="userService" class="com.xyq.service.UserService">
+        <!--        set注入 name为属性名 ref为引用的bean的id-->
+        <!--        <property name="userDao" ref="userDao"></property>-->
+        <!--        有参构造方法 name为构造方法参数名 ref为引用的bean的id-->
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+    </bean>
+
+</beans>
