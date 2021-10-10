@@ -22,4 +22,6 @@
             </set>
         </property>
     </bean>
+    <!--    配置前端控制器不拦截的静态资源-->
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
 </beans>

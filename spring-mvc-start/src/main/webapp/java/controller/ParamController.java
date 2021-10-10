@@ -49,7 +49,7 @@ public class ParamController {
     public String testServlet(HttpServletRequest request, HttpServletResponse response){
         Cookie[] cookies = request.getCookies();
         HttpSession session = request.getSession();
-        session.getServletContext()
+        session.getServletContext();
         return "success";
     }
 

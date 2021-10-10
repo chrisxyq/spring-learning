@@ -1,9 +1,10 @@
 package controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  * @author chrisxu
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping("/anno")
+@SessionAttributes(value = {"msg"})
 public class AnnoController {
     @RequestMapping("/testRequestParam")
     public String testRequestParam(@RequestParam(value = "name",required = true) String username){
@@ -27,5 +29,27 @@ public class AnnoController {
     public String testRequestBody(@RequestBody String requestBody){
         System.out.println(requestBody);
         return null;
+    }
+    @RequestMapping("/testPathVariable/{sid}")
+    public String testPathVariable(@PathVariable(name="sid") String id){
+        System.out.println(id);
+        return "success";
+    }
+    @RequestMapping("/testSessionAttributes")
+    public String testSessionAttributes(Model model){
+        //底层存储到request域对象
+        model.addAttribute("msg","美美");
+        return "success";
+    }
+    @RequestMapping("/getSessionAttributes")
+    public String getSessionAttributes(ModelMap modelMap){
+        //底层存储到request域对象
+        System.out.println(modelMap.get("msg"));
+        return "success";
+    }
+    @RequestMapping("/delSessionAttributes")
+    public String delSessionAttributes(SessionStatus sessionStatus){
+        sessionStatus.setComplete();
+        return "success";
     }
 }

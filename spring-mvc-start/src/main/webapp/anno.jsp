@@ -11,11 +11,15 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/anno/testRequestParam?name=username">RequestParam</a>
+<a href="/anno/testRequestParam?name=username">RequestParam</a><br/>
+<a href="/anno/testPathVariable/1">PathVariable</a><br/>
 <form action="/anno/testRequestBody" method="post">
     姓名：<input type="text" name="username"/><br/>
     生日：<input type="text" name="birth"/><br/>
     <input type="submit" value="提交"/>
 </form>
+<a href="/anno/testSessionAttributes">putSessionAttributes</a><br/>
+<a href="/anno/getSessionAttributes">getSessionAttributes</a><br/>
+<a href="/anno/delSessionAttributes">delSessionAttributes</a><br/>
 </body>
 </html>

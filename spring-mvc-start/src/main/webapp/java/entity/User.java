@@ -19,4 +19,12 @@ public class User implements Serializable {
     public String uname;
     public String age;
 
+    public User() {
+    }
+
+    public User(String uname, String age) {
+        this.uname = uname;
+        this.age = age;
+    }
+
 }

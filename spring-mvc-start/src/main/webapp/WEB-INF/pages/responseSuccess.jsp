@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 13692
-  Date: 2021/10/7
-  Time: 20:53
+  Date: 2021/10/10
+  Time: 20:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-${requestScope.msg}
-${sessionScope}
+${user.uname}
+${user.age}
 </body>
 </html>
