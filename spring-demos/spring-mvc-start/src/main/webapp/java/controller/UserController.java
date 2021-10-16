@@ -1,6 +1,10 @@
 package controller;
 
 import entity.User;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * @author chrisxu
@@ -22,10 +29,40 @@ import java.io.IOException;
  * ctrl + D：复制行
  * alt+上/下：移动光标到上/下方法
  * ctrl+shift+/：注释多行
+ * //// path:r"E:/mysoftware/apache-tomcat-8.5.38/webapps/ROOT/uploads\"
  */
 @RequestMapping("/user")
 @Controller
 public class UserController {
+    @RequestMapping("/fileupload1")
+    public String fileupload1(HttpServletRequest request) throws Exception {
+        System.out.println("文件上传");
+//        String path = request.getSession().getServletContext().getRealPath("/uploads/");
+        String path = "D:/uploads/";
+        File file = new File(path);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
+        ServletFileUpload fileUpload = new ServletFileUpload(fileItemFactory);
+        List<FileItem> fileItems = fileUpload.parseRequest(request);
+        for (FileItem fileItem : fileItems) {
+            if (fileItem.isFormField()) {
+
+            } else {
+                String name = fileItem.getName();
+                String uuid = UUID.randomUUID().toString().replace("-", "");
+                name = uuid + "_" + name;
+                //完成文件上传
+                fileItem.write(new File(path, name));
+                //删除临时文件
+                fileItem.delete();
+            }
+        }
+        return "success";
+
+    }
+
     @RequestMapping("/testString")
     public String testString(Model model) {
         //把user对象存储到request中，底层存储到request域对象
@@ -49,6 +86,7 @@ public class UserController {
 //        return "redirect:/WEB-INF/pages/success.jsp";
         return "redirect:index.jsp";
     }
+
     @RequestMapping("/testModelAndView")
     public ModelAndView testModelAndView() throws Exception {
         ModelAndView modelAndView = new ModelAndView();
@@ -58,8 +96,10 @@ public class UserController {
         modelAndView.setViewName("responseSuccess");
         return modelAndView;
     }
+
     @RequestMapping(value = "/testAjax", consumes = "application/json")
-    public @ResponseBody User testAjax(@RequestBody User user) {
+    public @ResponseBody
+    User testAjax(@RequestBody User user) {
         user.setAge("40");
         user.setUname("tom");
         System.out.println(user);
