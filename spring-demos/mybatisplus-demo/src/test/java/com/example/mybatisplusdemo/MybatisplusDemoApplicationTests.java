@@ -33,10 +33,16 @@ class MybatisplusDemoApplicationTests {
         userMapper.insert(user);
     }
     /**
+     * 测试 MyMetaObjectHandler
+     * @Component注解一定要加到MyMetaObjectHandler上
+     * 使得MyMetaObjectHandler填充器生效
      */
     @Test
     void test1() {
-
+        Usertbl user = new Usertbl();
+        user.setId(6L);
+        user.setEmail("updated");
+        userMapper.updateById(user);
     }
 
 

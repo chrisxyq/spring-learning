@@ -1,10 +1,14 @@
 package com.example.mybatisplusdemo.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 /**
  * @author chrisxu
@@ -26,4 +30,10 @@ public class Usertbl {
     private String name;
     private Integer age;
     private String email;
+    //自动会进行驼峰转换，字段映射
+    @TableField(fill= FieldFill.INSERT)
+    private Date createTime;
+    @TableField(fill= FieldFill.INSERT_UPDATE)
+    //无需在数据库级别设置更新时候更新该字段的触发器
+    private Date updateTime;
 }
