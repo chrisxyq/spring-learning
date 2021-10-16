@@ -1,7 +1,7 @@
 package com.example.mybatisplusdemo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.mybatisplusdemo.entity.User;
+import com.example.mybatisplusdemo.entity.Usertbl;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * ctrl+shift+/：注释多行
  */
 @Repository
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends BaseMapper<Usertbl> {
 
 }

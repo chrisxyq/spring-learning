@@ -1,6 +1,6 @@
 package com.example.mybatisplusdemo;
 
-import com.example.mybatisplusdemo.entity.User;
+import com.example.mybatisplusdemo.entity.Usertbl;
 import com.example.mybatisplusdemo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ class MybatisplusDemoApplicationTests {
 
     @Test
     void contextLoads() {
-        List<User> users = userMapper.selectList(null);
+        List<Usertbl> users = userMapper.selectList(null);
         //forEach参数是consumer类型的
         users.forEach(System.out::println);
     }
@@ -26,11 +26,18 @@ class MybatisplusDemoApplicationTests {
      */
     @Test
     void test() {
-        User user = new User();
+        Usertbl user = new Usertbl();
         user.setAge(1);
         user.setEmail("183@qq.com");
         user.setName("zhangsan");
         userMapper.insert(user);
     }
+    /**
+     */
+    @Test
+    void test1() {
+
+    }
+
 
 }

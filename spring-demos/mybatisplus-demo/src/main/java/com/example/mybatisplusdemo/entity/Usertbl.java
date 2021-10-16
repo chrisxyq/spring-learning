@@ -19,9 +19,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Usertbl {
 //    @TableId(type = IdType.NONE)//默认
-    @TableId(type = IdType.AUTO)//自增，在数据库上一个最大的id基础上加1
+    @TableId(type = IdType.INPUT)//自增适合使用该注解，在数据库上一个最大的id基础上加1
     private Long id;
     private String name;
     private Integer age;
