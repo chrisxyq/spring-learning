@@ -1,9 +1,6 @@
 package com.example.mybatisplusdemo.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,16 +21,19 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usertbl {
-//    @TableId(type = IdType.NONE)//默认
-    @TableId(type = IdType.INPUT)//自增适合使用该注解，在数据库上一个最大的id基础上加1
+    //    @TableId(type = IdType.NONE)//默认
+    //自增适合使用该注解，在数据库上一个最大的id基础上加1
+    @TableId(type = IdType.INPUT)
     private Long id;
     private String name;
     private Integer age;
     private String email;
     //自动会进行驼峰转换，字段映射
-    @TableField(fill= FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
-    @TableField(fill= FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     //无需在数据库级别设置更新时候更新该字段的触发器
     private Date updateTime;
+    @Version
+    private Integer version;
 }
