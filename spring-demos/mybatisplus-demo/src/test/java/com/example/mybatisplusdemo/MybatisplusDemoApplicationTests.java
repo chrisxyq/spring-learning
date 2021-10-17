@@ -111,4 +111,13 @@ class MybatisplusDemoApplicationTests {
         page.getRecords().forEach(System.out::println);
     }
 
+    /**
+     * ==>  Preparing: UPDATE usertbl SET deleted=1 WHERE id=? AND deleted=0
+     * ==> Parameters: 3(Long)
+     */
+    @Test
+    void test6() {
+        userMapper.deleteById(3L);
+    }
+
 }

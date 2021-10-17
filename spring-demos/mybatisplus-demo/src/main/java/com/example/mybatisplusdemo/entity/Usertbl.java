@@ -36,4 +36,6 @@ public class Usertbl {
     private Date updateTime;
     @Version
     private Integer version;
+    @TableLogic
+    private Integer deleted;
 }
