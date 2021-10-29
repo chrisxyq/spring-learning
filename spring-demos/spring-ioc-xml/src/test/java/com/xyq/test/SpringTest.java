@@ -35,4 +35,14 @@ public class SpringTest {
         UserService userService = (UserService) context.getBean("userService");
         System.out.println(userService);
     }
+
+    /**
+     * @value注解
+     */
+    @Test
+    public void testValue() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserService userService = (UserService) context.getBean("userService");
+        System.out.println(userService);
+    }
 }

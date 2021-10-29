@@ -6,14 +6,17 @@ import java.util.Map;
 
 import com.xyq.springboot.entities.Department;
 import com.xyq.springboot.entities.Employee;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 
 
 @Repository
 public class EmployeeDao {
-
+	@Value("${test.userName}")
+	private String userName;
 	private static Map<Integer, Employee> employees = null;
 	
 	@Autowired
@@ -54,4 +57,7 @@ public class EmployeeDao {
 
     public void getEmployeeById(Integer id) {
     }
+    @Test
+    public void test(){
+	}
 }

@@ -1,8 +1,11 @@
 package com.xyq.springboot.entities;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Department {
 
 	private Integer id;
+
 	private String departmentName;
 
 	public Department() {
